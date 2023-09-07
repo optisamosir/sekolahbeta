@@ -1,49 +1,131 @@
 <template>
 <section>
-  <div class="card">
-  <div class="card-body">
-    <h1>
-      Sistem Manajemen Sekolah (SIM Sekolah)
-    </h1>
-    <h2>
-      1. Apa itu sistem manajemen sekolah?
-    </h2>
-<p>
-  Sistem manajemen sekolah adalah suatu aplikasi sistem terpadu yang dapat diakses oleh semua anggota sekolah seperti guru, wali kelas, pegawai sekolah, tata usaha, siswa serta orang tua siswa dengan tujuan untuk mempermudah kegiatan operasional, manajemen sekolah dan juga kegiatan belajar mengajar.
-</p>
-<h2>
-  2. Mengapa harus menggunakan sistem manajemen sekolah atau sistem informasi akademik?
-</h2>
-<p>
-  Sistem informasi sekolah atau SIM Sekolah sangat penting untuk diimpelementasi karena dapat mempermudah kegiatan administrasi sekolah seperti mengelola data ekskul, jurusan, siswa, penerimaan siswa baru. Pengelolaan bantuan operasional sekolah (dana bos) serta berbagai kegiatan operasional lainnya
-</p>
-<h2>
-  3. Manfaat dan Tujuan sistem informasi manajemen di sekolah bagi guru dan karyawan :
-</h2>  
-<p>
-  <ul>
-    <li> Pihak Sekolah dapat dengan mudah dalam mengelola data-data siswa, guru dan karyawan sekolah karena data tersebut tersentralisasi dan tertata dengan baik </li>
-    <li>
-      Pihak sekolah mudah dalam melakukan tugas manajemen, pengaturan administrasi dan juga kurikulum sekolah
-    </li>
-    <li>
-      Lebih Efisien dalam menerapkan Standar Operasional (SOP) sekolah
-    </li>
-    <li>
-      Memudahkan absensi bagi guru dan karyawan sekolah
-    </li>
-    <li>
-      Memudahkan ketika ada pengumuman yang akan disampaikan pihak sekolah
-    </li>
-    <li>
-      Mempermudah guru dalam melakukan ujian karena dengan SIM sekolah, guru hanya perlu mengupload soal dan jawaban siswa akan dinilai secara otomatis oleh sistem
-    </li>
-    <li>
-      Meningkatkan kredibilitas sekolah
-    </li>
-  </ul>
-</p>
+  <div class ="py-4">
+    <div class="container">
+      <div class="title border-bottom d-flex align-item-center justify-content-between py-2">
+        <h1>Tugas 3</h1>
+        <div class="d-flex align-item-center">
+          <span class="me-2">View As</span>
+          <button
+          class="btn btn-outline-secondary py-1 px-3"
+          @click="isGrid=!isGrid">
+          {{ isGrid?'Grid':'List' }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="list-task row">
+    <div 
+    :class="[
+    'item-task d-flex align-items-start border-bottom pt-3 pb-4',
+    isGrid? 'col-12 col-md-6 col-lg-4' :'col-12']">
+<!-- // v-model berfungsi untuk mengikat variabel yang dideklarasikan dan secara
+otomatis akan memperbaharui elemen berdasarkan tipe input -->
+<input
+id="task"
+type="checkbox"
+name="status"
+class="me-2 mt-2"
+:checked="tasks[0].isDone"
+v-model="tasks[0].isDone"
+>
+<div
+:class="['d-flex flex-column', tasks[0].isDone ?
+'text-decoration-line-through fst-italic' : '']">
+<div class="title-task mb-1">
+{{ tasks[0].title }}
 </div>
+<div class="description-task small text-muted">
+{{ tasks[0].description }}
+</div>
+</div>
+</div>
+
+<div 
+    :class="[
+    'item-task d-flex align-items-start border-bottom pt-3 pb-4',
+    isGrid? 'col-12 col-md-6 col-lg-4' :'col-12']">
+<!-- // v-model berfungsi untuk mengikat variabel yang dideklarasikan dan secara
+otomatis akan memperbaharui elemen berdasarkan tipe input -->
+<input
+id="task"
+type="checkbox"
+name="status"
+class="me-2 mt-2"
+:checked="tasks[1].isDone"
+v-model="tasks[1].isDone"
+>
+<div
+:class="['d-flex flex-column', tasks[1].isDone ?
+'text-decoration-line-through fst-italic' : '']">
+<div class="title-task mb-1">
+{{ tasks[0].title }}
+</div>
+<div class="description-task small text-muted">
+{{ tasks[0].description }}
+</div>
+</div>
+</div>
+
+<div 
+    :class="[
+    'item-task d-flex align-items-start border-bottom pt-3 pb-4',
+    isGrid? 'col-12 col-md-6 col-lg-4' :'col-12']">
+<!-- // v-model berfungsi untuk mengikat variabel yang dideklarasikan dan secara
+otomatis akan memperbaharui elemen berdasarkan tipe input -->
+<input
+id="task"
+type="checkbox"
+name="status"
+class="me-2 mt-2"
+:checked="tasks[2].isDone"
+v-model="tasks[2].isDone"
+>
+<div
+:class="['d-flex flex-column', tasks[2].isDone ?
+'text-decoration-line-through fst-italic' : '']">
+<div class="title-task mb-1">
+{{ tasks[0].title }}
+</div>
+<div class="description-task small text-muted">
+{{ tasks[0].description }}
+</div>
+</div>
+</div>
+
 </div>
 </section>
 </template>
+
+<script>
+export default{
+data(){
+  return{
+    isGrid : false,
+    isCreating : false,
+    tasks : [
+      {
+        title :'Kelas X',
+        description : 'Pembelajaran Kelas X',
+        category : 'Tugas Harian',
+        isDone :false,
+      },
+      {
+        title :'Kelas XI',
+        description : 'Pembelajaran Kelas XI',
+        category : 'Tugas Harian',
+        isDone :false,
+      },
+      {
+        title :'Kelas XII',
+        description : 'Pembelajaran Kelas XII',
+        category : 'Tugas Harian',
+        isDone :false,
+      }
+    ]
+  }
+}
+
+}
+</script>
