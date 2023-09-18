@@ -46,6 +46,15 @@
             </select>
             </div>
         </div>
+        <section class="content">
+        <br>
+        <ul>
+            <li v-for="(item, abc) in form" :key="abc">
+                <strong> {{ abc }}:</strong> {{ item }}
+            </li>
+        </ul>
+    </section>
+
         <div class="button-wrapper d-flex">
           <button class="btn btn-primary me-2">Save</button>
           <button
@@ -73,10 +82,7 @@ export default {
   methods: {
             handleSubmit() {
                 // console.log(this.form)
-                const item = {
-                    form: this.form
-                }
-                this.tasks.push(item)
+                this.tasks.push()
             }
           },
   components: {
@@ -85,7 +91,10 @@ export default {
   data(){
   return{
     form : {
-      name: ''
+      title : '',
+      category : '',
+      description :'',
+      isDone :false
     },
     options: {
                     inquiry: [
