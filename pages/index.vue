@@ -81,8 +81,13 @@ import CardItem from "@/components/Card/CardItem.vue"
 export default {
   methods: {
             handleSubmit() {
-                // console.log(this.form)
-                this.tasks.push()
+              const item = {
+                category: this.form.category,
+                description: this.form.description,
+                isDone: this.form.isDone,
+                title: this.form.title
+              }
+              this.tasks.push(item)
             }
           },
   components: {
