@@ -10,6 +10,9 @@
         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" ><router-link to="../form">Form</router-link></a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" ><router-link to="../about">About</router-link></a>
       </li>
       <li class="nav-item">
